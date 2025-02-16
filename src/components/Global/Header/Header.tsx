@@ -17,16 +17,28 @@ export const Header = () => {
                 </div>
             </Link>
             <nav className="flex items-center gap-20 max-lg:hidden">
-                <Link href="/" className="transition duration-300 ease-in-out text-base leading-6 hover:text-textThird">
+                <Link
+                    href="/"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                >
                     Home
                 </Link>
-                <Link href="/shop" className="transition duration-300 ease-in-out text-base leading-6 hover:text-textThird">
+                <Link
+                    href="/shop"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                >
                     Shop
                 </Link>
-                <Link href="/home" className="transition duration-300 ease-in-out text-base leading-6 hover:text-textThird">
+                <Link
+                    href="/home"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                >
                     About
                 </Link>
-                <Link href="/home" className="transition duration-300 ease-in-out text-base leading-6 hover:text-textThird">
+                <Link
+                    href="/home"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                >
                     Contact
                 </Link>
             </nav>

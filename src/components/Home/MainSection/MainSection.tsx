@@ -1,6 +1,6 @@
 import HomeSectionImg from "@/../public/images/home-background.png";
 import { Discover } from "../Discover";
-import { Container } from "@/components/Container"
+import { Container } from "../../Global/Container"
 
 export const MainSection = () => {
     return (
@@ -8,9 +8,11 @@ export const MainSection = () => {
             style={{ backgroundImage: `url(${HomeSectionImg.src})` }}
             className="bg-cover bg-center h-64 w-full min-h-[650px]"
         >
-            <Container>
-                <Discover className="" />
+            <Container className="relative h-full">
+                <Discover className="absolute right-0 bottom-24" />
             </Container>
         </main>
     );
 };
+
+    

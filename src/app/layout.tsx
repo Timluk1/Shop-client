@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/Header";
-import { Container } from "@/components/Container/Container";
+import { Header } from "@/components/Global/Header";
+import { Container } from "@/components/Global/Container/Container";
 import { Montserrat, Poppins } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "../styles/globals.css";
@@ -27,12 +27,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body
-                className={cn(
-                    montserrat.variable,
-                    poppins.variable,
-                )}
-            >
+            <body className={cn(montserrat.variable, poppins.variable)}>
                 <div className="w-full">
                     <Container>
                         <Header />

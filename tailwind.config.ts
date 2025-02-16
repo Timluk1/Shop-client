@@ -10,16 +10,19 @@ export default {
     theme: {
         extend: {
             colors: {
-
                 // background
-                bgPrimary: "#FFF3E3",
-                bgButton: "#B88E2F",
-                bgButtonHover: "#735717",
-                
+                "bg-primary": "#FFF3E3",
+                "bg-secondary": "#F4F5F7",
+
+                "bg-button": "#B88E2F",
+                "bg-button-hover": "#735717",
+
                 // text
-                textPrimary: "#333333",
-                textSecondary: "#B88E2F",
-                textThird: "#B88E2F",
+                "text-primary": "#333333",
+                "text-secondary": "#B88E2F",
+                "text-third": "#B88E2F",
+                "text-fourth": "#898989",
+                "text-five": "#3A3A3A",
 
                 // shadcn ui
                 background: "hsl(var(--background))",
