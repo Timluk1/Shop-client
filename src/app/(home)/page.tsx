@@ -1,4 +1,4 @@
-import { MainSection } from "@/components/Home/MainSection";
+import { MainSection } from "@/entities/Home"
 
 const Home = () => {
     return (

@@ -19,25 +19,25 @@ export const Header = () => {
             <nav className="flex items-center gap-20 max-lg:hidden">
                 <Link
                     href="/"
-                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-golden-400"
                 >
                     Home
                 </Link>
                 <Link
                     href="/shop"
-                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-golden-400"
                 >
                     Shop
                 </Link>
                 <Link
                     href="/home"
-                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-golden-400"
                 >
                     About
                 </Link>
                 <Link
                     href="/home"
-                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-text-third"
+                    className="transition duration-300 ease-in-out text-base leading-6 hover:text-golden-400"
                 >
                     Contact
                 </Link>

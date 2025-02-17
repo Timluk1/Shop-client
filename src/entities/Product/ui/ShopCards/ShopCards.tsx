@@ -3,21 +3,18 @@ import { ShopCardItem } from "../ShopCardItem";
 export interface IProduct {
     id: number;
     name: string;
-    description: string;
+    shortDescription: string;
     price: number;
     currency: string;
-    imageUrl: string;
-    discount: {
-        type: string;
-        value: number;
-        oldPrice: number;
-    };
+    images: string[];
 }
 
 const getAllProducts = async (): Promise<IProduct[]> => {
-    const res = await fetch("http://localhost:4000/api/products", { cache: "no-store" });
+    const res = await fetch("http://localhost:4000/api/products", {
+        cache: "no-store",
+    });
     return await res.json();
-}
+};
 
 export const ShopCards = async () => {
     const products = await getAllProducts();
@@ -28,9 +25,9 @@ export const ShopCards = async () => {
                     <ShopCardItem
                         key={product.id}
                         name={product.name}
-                        description={product.description}
+                        description={product.shortDescription}
                         price={product.price}
-                        imageUrl={product.imageUrl}
+                        imageUrl={product.images[0]}
                     />
                 </li>
             ))}

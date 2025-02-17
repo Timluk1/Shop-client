@@ -5,7 +5,7 @@ import {
     BreadcrumbList,
     BreadcrumbPage,
     BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
+} from "@/shared/ui/shadcn/breadcrumb";
 
 export const ShopHeader = () => {
     return (

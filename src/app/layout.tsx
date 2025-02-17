@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { Header } from "@/components/Global/Header";
-import { Container } from "@/components/Global/Container/Container";
+import { Header } from "@/widgets/Header";
+import { Container } from "@/shared/ui/Container/Container";
 import { Montserrat, Poppins } from "next/font/google";
-import { cn } from "@/lib/utils";
-import "../styles/globals.css";
+import { cn } from "@/shared/lib/utils";
+import "@/shared/styles/globals.css"
 
 export const metadata: Metadata = {
     title: "Furniro",

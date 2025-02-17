@@ -1,7 +1,7 @@
 import ShopSectionImg from "@/../public/images/shop-background.png";
-import { ShopHeader } from "@/components/Shop/ShopHeader";
-import { ShopCards } from "@/components/Shop/ShopCards";
-import { Container } from "@/components/Global/Container";
+import { ShopHeader } from "@/entities/Product/ui/ShopHeader";
+import { ShopCards } from "@/entities/Product/ui/ShopCards";
+import { Container } from "@/shared/ui/Container";
 
 const Shop = async () => {
     return (

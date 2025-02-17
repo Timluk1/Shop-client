@@ -3,13 +3,20 @@ import type { Config } from "tailwindcss";
 export default {
     darkMode: ["class"],
     content: [
-        "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/entities/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/shared/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/widgets/**/*.{js,ts,jsx,tsx,mdx}",
+        "./src/**/*.{ts,tsx,mdx}"
     ],
+
     theme: {
         extend: {
             colors: {
+                golden: {
+                    400: "#B88E2F",
+                    500: "#9F7726"
+                },
                 // background
                 "bg-primary": "#FFF3E3",
                 "bg-secondary": "#F4F5F7",
@@ -19,8 +26,6 @@ export default {
 
                 // text
                 "text-primary": "#333333",
-                "text-secondary": "#B88E2F",
-                "text-third": "#B88E2F",
                 "text-fourth": "#898989",
                 "text-five": "#3A3A3A",
 
@@ -36,7 +41,7 @@ export default {
                     foreground: "hsl(var(--popover-foreground))",
                 },
                 primary: {
-                    DEFAULT: "var(--primary)",
+                    DEFAULT: "hsl(var(--primary))",
                     foreground: "hsl(var(--primary-foreground))",
                 },
                 secondary: {

@@ -1,6 +1,6 @@
 import HomeSectionImg from "@/../public/images/home-background.png";
 import { Discover } from "../Discover";
-import { Container } from "../../Global/Container"
+import { Container } from "@/shared/ui/Container"
 
 export const MainSection = () => {
     return (
@@ -14,5 +14,3 @@ export const MainSection = () => {
         </main>
     );
 };
-
-    
