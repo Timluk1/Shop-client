@@ -17,17 +17,23 @@ export default {
                     400: "#B88E2F",
                     500: "#9F7726"
                 },
-                // background
-                "bg-primary": "#FFF3E3",
-                "bg-secondary": "#F4F5F7",
-
-                "bg-button": "#B88E2F",
-                "bg-button-hover": "#735717",
-
-                // text
-                "text-primary": "#333333",
-                "text-fourth": "#898989",
-                "text-five": "#3A3A3A",
+                white: {
+                    100: "#FFFFFF"
+                },
+                beige: {
+                    400: "#FFF3E3"
+                },
+                gray: {
+                    400: "#F4F5F7",
+                    500: "#898989",
+                    600: "#666666",
+                    700: "#3A3A3A",
+                    800: "#333333"
+                },
+                brown: {
+                    400: "#B88E2F",
+                    500: "#735717"
+                },
 
                 // shadcn ui
                 background: "hsl(var(--background))",

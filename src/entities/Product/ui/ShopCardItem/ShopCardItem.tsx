@@ -29,7 +29,7 @@ interface IShopCardItemProps {
 const MotionLayout: React.FC<PropsWithChildren> = ({ children }) => {
     return (
         <motion.div
-            className="relative bg-bg-secondary"
+            className="relative bg-gray-400"
             whileHover="hover"
             initial="rest"
         >
@@ -68,7 +68,7 @@ export const ShopCardItem: React.FC<IShopCardItemProps> = ({
         <Link href="/">
             <MotionLayout>
                 <Overlay className="flex flex-col gap-4">
-                    <Button variant="secondary">
+                    <Button variant="white">
                         Add to cart
                     </Button>
                     <ul>
@@ -89,7 +89,7 @@ export const ShopCardItem: React.FC<IShopCardItemProps> = ({
                 />
                 <div className="px-4 pb-8 leading-6">
                     <h3 className="text-2xl font-semibold mb-2">{name}</h3>
-                    <p className="text-text-fourth text-base font-medium leading-4 mb-2">
+                    <p className="text-gray-500 text-base font-medium leading-4 mb-2">
                         {description}
                     </p>
                     <p className="text-xl font-semibold leading-5 mb-2">

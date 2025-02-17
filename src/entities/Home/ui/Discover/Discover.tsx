@@ -9,11 +9,11 @@ export const Discover: React.FC<IDiscover> = ({ className }) => {
     return (
         <div
             className={cn(
-                "bg-bg-primary w-[643px] h-[443px] p-[62px_41px]",
+                "bg-beige-400 w-[643px] h-[443px] p-[62px_41px]",
                 className,
             )}
         >
-            <p className="text-text-primary text-base tracking-[3px] font-semibold">
+            <p className="text-gray-700 text-base tracking-[3px] font-semibold">
                 New Arrival
             </p>
             <h1 className="text-golden-400 text-[52px] leading-[65px] font-poppins font-bold">
