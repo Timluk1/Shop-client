@@ -23,7 +23,9 @@ export const Discover: React.FC<IDiscover> = ({ className }) => {
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
                 tellus, luctus nec ullamcorper mattis.
             </p>
-            <Button size="big" className="uppercase">buy now</Button>
+            <Button size="big" className="uppercase">
+                buy now
+            </Button>
         </div>
     );
 };

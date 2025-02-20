@@ -7,7 +7,7 @@ export default {
         "./src/entities/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/shared/**/*.{js,ts,jsx,tsx,mdx}",
         "./src/widgets/**/*.{js,ts,jsx,tsx,mdx}",
-        "./src/**/*.{ts,tsx,mdx}"
+        "./src/**/*.{ts,tsx,mdx}",
     ],
 
     theme: {
@@ -15,24 +15,24 @@ export default {
             colors: {
                 golden: {
                     400: "#B88E2F",
-                    500: "#9F7726"
+                    500: "#9F7726",
                 },
                 white: {
-                    100: "#FFFFFF"
+                    100: "#FFFFFF",
                 },
                 beige: {
-                    400: "#FFF3E3"
+                    400: "#FFF3E3",
                 },
                 gray: {
                     400: "#F4F5F7",
                     500: "#898989",
                     600: "#666666",
                     700: "#3A3A3A",
-                    800: "#333333"
+                    800: "#333333",
                 },
                 brown: {
                     400: "#B88E2F",
-                    500: "#735717"
+                    500: "#735717",
                 },
 
                 // shadcn ui

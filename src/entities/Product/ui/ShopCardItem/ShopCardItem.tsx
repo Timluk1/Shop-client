@@ -68,9 +68,7 @@ export const ShopCardItem: React.FC<IShopCardItemProps> = ({
         <Link href="/">
             <MotionLayout>
                 <Overlay className="flex flex-col gap-4">
-                    <Button variant="white">
-                        Add to cart
-                    </Button>
+                    <Button variant="white">Add to cart</Button>
                     <ul>
                         <li className="flex gap-1">
                             <Button variant="link">

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Montserrat, Poppins } from "next/font/google";
 import { cn } from "@/shared/lib/utils";
-import "@/shared/styles/globals.css"
+import "@/shared/styles/globals.css";
 
 export const metadata: Metadata = {
     title: "Furniro",
@@ -25,10 +25,10 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en" className="h-full">
-            <body className={cn(montserrat.variable, poppins.variable, "h-full")}>
-                <div className="w-full h-full">
-                    {children}
-                </div>
+            <body
+                className={cn(montserrat.variable, poppins.variable, "h-full")}
+            >
+                <div className="w-full h-full">{children}</div>
             </body>
         </html>
     );

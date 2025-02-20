@@ -3,7 +3,7 @@ import { ShopHeader } from "@/entities/Product/ui/ShopHeader";
 import { ShopCards } from "@/entities/Product/ui/ShopCards";
 import { Container } from "@/shared/ui/Container";
 
-const Shop = async () => {
+const Shop = () => {
     return (
         <div
             style={{ backgroundImage: `url(${ShopSectionImg.src})` }}

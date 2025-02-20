@@ -43,7 +43,7 @@ export const Header = () => {
                 </Link>
             </nav>
             <div className="flex items-center gap-10 max-sm:hidden">
-                <Link href="/home">
+                <Link href="/auth">
                     <Image src={User} alt="profile" />
                 </Link>
                 <Link href="/home">

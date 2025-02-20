@@ -1,4 +1,5 @@
 import { ShopCardItem } from "../ShopCardItem";
+import { axiosInstance, apiPaths } from "@/shared/api/axios";
 
 export interface IProduct {
     id: number;
@@ -10,10 +11,8 @@ export interface IProduct {
 }
 
 const getAllProducts = async (): Promise<IProduct[]> => {
-    const res = await fetch("http://localhost:4000/api/products", {
-        cache: "no-store",
-    });
-    return await res.json();
+    const res = await axiosInstance.get(apiPaths.getProducts);
+    return await res.data;
 };
 
 export const ShopCards = async () => {

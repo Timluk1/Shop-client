@@ -1,39 +1,103 @@
-"use client"
+"use client";
 
-import { Card, CardHeader, CardFooter, CardTitle, CardContent, CardDescription } from "@/shared/ui/shadcn/card";
+import {
+    Card,
+    CardHeader,
+    CardFooter,
+    CardTitle,
+    CardContent,
+} from "@/shared/ui/shadcn/card";
 import { TabsContent } from "@/shared/ui/shadcn/tabs";
 import { Button } from "@/shared/ui/shadcn/button";
-import { Input } from "@/shared/ui/shadcn/input";
+import { useForm } from "react-hook-form";
 import { Label } from "@/shared/ui/shadcn/label";
+import { FormInput } from "@/shared/ui/FormInput/FormInput";
+import { useAuth } from "@/entities/Auth/lib";
+
+interface FormData {
+    email: string;
+    password: string;
+    confirmPassword: string;
+}
 
 export const RegistrationForm = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+        watch,
+    } = useForm<FormData>({
+        mode: "onBlur",
+        criteriaMode: "all",
+        defaultValues: {
+            email: "",
+            password: "",
+            confirmPassword: "",
+        },
+    });
+
+    const { handleAuth, isPending } = useAuth();
+
     return (
         <TabsContent value="registration">
-            <Card>
+            <Card className="font-mont">
                 <CardHeader>
-                    <CardTitle>Registration</CardTitle>
-                    <CardDescription>
-                        Create your account here
-                    </CardDescription>
+                    <CardTitle className="text-center text-2xl font-medium">
+                        Create account
+                    </CardTitle>
                 </CardHeader>
-                <CardContent className="space-y-2">
-                    <div className="space-y-1">
-                        <Label htmlFor="emaik">Email</Label>
-                        <Input id="email" />
-                    </div>
-                    <div className="space-y-1">
+                <form onSubmit={handleSubmit(handleAuth)}>
+                    <CardContent className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <FormInput
+                            name="email"
+                            placeholder="Email"
+                            className="h-11"
+                            register={register}
+                            error={errors.email?.message || ""}
+                            rules={{
+                                required: "Email is required",
+                                pattern: {
+                                    value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                                    message: "Invalid email format",
+                                },
+                            }}
+                        />
                         <Label htmlFor="password">Password</Label>
-                        <Input id="password" />
-                    </div>
-                    <div className="space-y-1">
-                        <Label htmlFor="emaik">Password replace</Label>
-                        <Input id="password-replace" />
-                    </div>
-                </CardContent>
-                <CardFooter>
-                    <Button>Registration</Button>
-                </CardFooter>
+                        <FormInput
+                            name="password"
+                            placeholder="Password"
+                            className="h-11"
+                            type="password"
+                            register={register}
+                            error={errors.password?.message || ""}
+                            rules={{
+                                required: "Password is required",
+                                minLength: {
+                                    value: 6,
+                                    message: "Password must be at least 6 characters",
+                                },
+                            }}
+                        />
+                        <Label htmlFor="password">Confirm password</Label>
+                        <FormInput
+                            name="confirmPassword"
+                            placeholder="Confirm password"
+                            className="h-11"
+                            type="password"
+                            register={register}
+                            error={errors.confirmPassword?.message || ""}
+                            rules={{
+                                required: "Confirm password is required",
+                                validate: (value) => value === watch("password") || "Passwords do not match",
+                            }}
+                        />
+                    </CardContent>
+                    <CardFooter className="flex justify-center">
+                        <Button type="submit" disabled={isPending}>Register</Button>
+                    </CardFooter>
+                </form>
             </Card>
         </TabsContent>
-    )
-}
+    );
+};
