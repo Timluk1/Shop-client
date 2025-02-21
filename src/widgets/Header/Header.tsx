@@ -1,11 +1,15 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "@/../public/icons/logo.svg";
 import User from "@/../public/icons/user.svg";
 import Heart from "@/../public/icons/heart.svg";
 import Cart from "@/../public/icons/cart.svg";
+import { useIsAuth } from "@/shared/lib/useIsAuth";
 
 export const Header = () => {
+    const { isAuth } = useIsAuth();
     return (
         <header className="flex justify-between items-center pt-8 pb-8 w-full">
             <Link href="/home">
@@ -30,22 +34,24 @@ export const Header = () => {
                     Shop
                 </Link>
                 <Link
-                    href="/home"
+                    href="/about"
                     className="transition duration-300 ease-in-out text-base leading-6 hover:text-golden-400"
                 >
                     About
                 </Link>
                 <Link
-                    href="/home"
+                    href="/contact"
                     className="transition duration-300 ease-in-out text-base leading-6 hover:text-golden-400"
                 >
                     Contact
                 </Link>
             </nav>
             <div className="flex items-center gap-10 max-sm:hidden">
-                <Link href="/auth">
-                    <Image src={User} alt="profile" />
-                </Link>
+                {!isAuth && (
+                    <Link href="/auth">
+                        <Image src={User} alt="profile" />
+                    </Link>
+                )}
                 <Link href="/home">
                     <Image src={Heart} alt="favorites" />
                 </Link>

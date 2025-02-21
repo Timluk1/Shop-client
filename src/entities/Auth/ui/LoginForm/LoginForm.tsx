@@ -13,12 +13,13 @@ import { useAuth } from "@/entities/Auth/lib";
 import { Label } from "@/shared/ui/shadcn/label";
 import { useForm } from "react-hook-form";
 import { FormInput } from "@/shared/ui/FormInput/FormInput";
+import { useToast } from "@/shared/lib/use-toast";
+import { useEffect } from "react";
 
 interface FormData {
     email: string;
     password: string;
 }
-
 
 export const LoginForm = () => {
     const {
@@ -33,8 +34,18 @@ export const LoginForm = () => {
             password: "",
         },
     });
+    const { toast } = useToast();
+    const { handleAuth, error, isPending } = useAuth();
 
-    const { handleAuth, isPending } = useAuth();
+    useEffect(() => {
+        if (error) {
+            toast({
+                title: "Login failed",
+                description: error || "Something went wrong",
+                variant: "destructive",
+            });
+        }
+    }, [isPending, error, toast]);
 
     return (
         <TabsContent value="login">
@@ -76,14 +87,17 @@ export const LoginForm = () => {
                                     required: "Password is required",
                                     minLength: {
                                         value: 6,
-                                        message: "Password must be at least 6 characters",
+                                        message:
+                                            "Password must be at least 6 characters",
                                     },
                                 }}
                             />
                         </div>
                     </CardContent>
                     <CardFooter className="flex justify-center">
-                        <Button type="submit" disabled={isPending}>Login</Button>
+                        <Button type="submit" disabled={isPending}>
+                            Login
+                        </Button>
                     </CardFooter>
                 </form>
             </Card>

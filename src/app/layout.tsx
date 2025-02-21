@@ -1,12 +1,12 @@
-import type { Metadata } from "next";
+"use client";
+
 import { Montserrat, Poppins } from "next/font/google";
 import { cn } from "@/shared/lib/utils";
-import "@/shared/styles/globals.css";
+import { Toaster } from "@/shared/ui/shadcn/toaster";
+import { Provider } from "react-redux";
+import store from "@/app/redux/store";
 
-export const metadata: Metadata = {
-    title: "Furniro",
-    description: "Furniro - best project",
-};
+import "@/shared/styles/globals.css";
 
 const montserrat = Montserrat({
     subsets: ["latin"],
@@ -28,7 +28,10 @@ export default function RootLayout({
             <body
                 className={cn(montserrat.variable, poppins.variable, "h-full")}
             >
-                <div className="w-full h-full">{children}</div>
+                <Toaster />
+                <div className="w-full h-full">
+                    <Provider store={store}>{children}</Provider>
+                </div>
             </body>
         </html>
     );

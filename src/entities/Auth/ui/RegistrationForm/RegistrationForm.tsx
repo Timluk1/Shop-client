@@ -13,6 +13,8 @@ import { useForm } from "react-hook-form";
 import { Label } from "@/shared/ui/shadcn/label";
 import { FormInput } from "@/shared/ui/FormInput/FormInput";
 import { useAuth } from "@/entities/Auth/lib";
+import { useEffect } from "react";
+import { useToast } from "@/shared/lib/use-toast";
 
 interface FormData {
     email: string;
@@ -36,7 +38,17 @@ export const RegistrationForm = () => {
         },
     });
 
-    const { handleAuth, isPending } = useAuth();
+    const { handleAuth, error, isPending } = useAuth();
+    const { toast } = useToast();
+    useEffect(() => {
+        if (error) {
+            toast({
+                title: "Registration failed",
+                description: error || "Something went wrong",
+                variant: "destructive",
+            });
+        }
+    }, [isPending, error, toast]);
 
     return (
         <TabsContent value="registration">
@@ -75,7 +87,8 @@ export const RegistrationForm = () => {
                                 required: "Password is required",
                                 minLength: {
                                     value: 6,
-                                    message: "Password must be at least 6 characters",
+                                    message:
+                                        "Password must be at least 6 characters",
                                 },
                             }}
                         />
@@ -89,12 +102,16 @@ export const RegistrationForm = () => {
                             error={errors.confirmPassword?.message || ""}
                             rules={{
                                 required: "Confirm password is required",
-                                validate: (value) => value === watch("password") || "Passwords do not match",
+                                validate: (value) =>
+                                    value === watch("password") ||
+                                    "Passwords do not match",
                             }}
                         />
                     </CardContent>
                     <CardFooter className="flex justify-center">
-                        <Button type="submit" disabled={isPending}>Register</Button>
+                        <Button type="submit" disabled={isPending}>
+                            Register
+                        </Button>
                     </CardFooter>
                 </form>
             </Card>
