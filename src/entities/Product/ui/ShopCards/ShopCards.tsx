@@ -1,14 +1,6 @@
 import { ShopCardItem } from "../ShopCardItem";
 import { axiosInstance, apiPaths } from "@/shared/api/axios";
-
-export interface IProduct {
-    id: number;
-    name: string;
-    shortDescription: string;
-    price: number;
-    currency: string;
-    images: string[];
-}
+import { IProduct } from "@/shared/api/apiTypes";
 
 const getAllProducts = async (): Promise<IProduct[]> => {
     const res = await axiosInstance.get(apiPaths.getProducts);
@@ -22,11 +14,7 @@ export const ShopCards = async () => {
             {products.map((product: IProduct) => (
                 <li key={product.id}>
                     <ShopCardItem
-                        key={product.id}
-                        name={product.name}
-                        description={product.shortDescription}
-                        price={product.price}
-                        imageUrl={product.images[0]}
+                        {...product}
                     />
                 </li>
             ))}

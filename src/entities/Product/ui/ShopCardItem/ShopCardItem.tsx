@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/shared/ui/shadcn/button";
 import { motion } from "framer-motion";
 import { PropsWithChildren } from "react";
 import LikeIcon from "@/../public/icons/like.svg";
 import { cn } from "@/shared/lib/utils";
+import type { IProduct } from "@/shared/api/apiTypes";
+import { useRouter } from "next/navigation";
 
 const hoverStyles = {
     opacity: 1,
@@ -18,13 +19,6 @@ const restStyles = {
     height: "100%",
     opacity: 0,
 };
-
-interface IShopCardItemProps {
-    name: string;
-    description: string;
-    price: number;
-    imageUrl: string;
-}
 
 const MotionLayout: React.FC<PropsWithChildren> = ({ children }) => {
     return (
@@ -38,7 +32,7 @@ const MotionLayout: React.FC<PropsWithChildren> = ({ children }) => {
     );
 };
 
-const Overlay: React.FC<PropsWithChildren & { className?: string }> = ({
+const Overlay: React.FC<PropsWithChildren & { className?: string}> = ({
     children,
     className,
 }) => {
@@ -58,43 +52,58 @@ const Overlay: React.FC<PropsWithChildren & { className?: string }> = ({
     );
 };
 
-export const ShopCardItem: React.FC<IShopCardItemProps> = ({
+export const ShopCardItem: React.FC<IProduct> = ({
+    id,
     name,
-    description,
+    shortDescription,
     price,
-    imageUrl,
+    images,
 }) => {
+    const router = useRouter();
+
+    const handleClickProduct = () => {
+        router.push(`/shop/${id}`);
+    }
+
+    const handleClickButton = () => {
+        
+    }
+
     return (
-        <Link href="/">
-            <MotionLayout>
+        <MotionLayout>
+            <div onClick={handleClickProduct}>
                 <Overlay className="flex flex-col gap-4">
-                    <Button variant="white">Add to cart</Button>
+                    <Button onClick={handleClickButton} variant="white">Add to cart</Button>
                     <ul>
                         <li className="flex gap-1">
-                            <Button variant="link">
-                                <Image src={LikeIcon} alt="Like icon" />
-                                <p className="text-base text-white">Like</p>
-                            </Button>
+                            <div className="flex gap-3">
+                                <Button variant="noStyle">
+                                    <Image src={LikeIcon} alt="Like icon" />
+                                    <p className="text-base text-white-100 no-underline">
+                                        Like
+                                    </p>
+                                </Button>
+                            </div>
                         </li>
                     </ul>
                 </Overlay>
-                <Image
-                    src={imageUrl}
-                    alt={name}
-                    className="mb-4"
-                    width={500}
-                    height={600}
-                />
-                <div className="px-4 pb-8 leading-6">
-                    <h3 className="text-2xl font-semibold mb-2">{name}</h3>
-                    <p className="text-gray-500 text-base font-medium leading-4 mb-2">
-                        {description}
-                    </p>
-                    <p className="text-xl font-semibold leading-5 mb-2">
-                        {price} руб.
-                    </p>
-                </div>
-            </MotionLayout>
-        </Link>
+            </div>
+            <Image
+                src={images[0]}
+                alt={name}
+                className="mb-4"
+                width={500}
+                height={600}
+            />
+            <div className="px-4 pb-8 leading-6">
+                <h3 className="text-2xl font-semibold mb-2">{name}</h3>
+                <p className="text-gray-500 text-base font-medium leading-4 mb-2">
+                    {shortDescription}
+                </p>
+                <p className="text-xl font-semibold leading-5 mb-2">
+                    {price} руб.
+                </p>
+            </div>
+        </MotionLayout>
     );
 };

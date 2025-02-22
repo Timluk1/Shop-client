@@ -5,7 +5,9 @@ const API_PATH = process.env.NEXT_PUBLIC_BACKEND_PATH;
 enum apiPaths {
     login = "/auth/login",
     registration = "/auth/registration",
+    updateAccessToken = "/auth/update-access",
     getProducts = "/products",
+    getProductById = "/products/",
 }
 
 const options = {
@@ -23,6 +25,7 @@ axiosInstanceWithAuth.interceptors.request.use((config) => {
     if (!accessToken) {
         return config;
     }
+    console.log(accessToken);
     config.headers.Authorization = `Bearer ${accessToken}`;
     return config;
 });
@@ -31,11 +34,11 @@ axiosInstanceWithAuth.interceptors.response.use(
     function (response) {
         return response;
     },
-    function (error) {
+    async function (error) {
         if (error.response.status === 401) {
-            console.log("hello");
+            // const { accessToken } = await axiosInstance.get(apiPaths.updateAccessToken);
+            // console.log(accessToken)
         }
-        return Promise.reject(error);
     },
 );
 

@@ -14,6 +14,7 @@ export default {
         extend: {
             colors: {
                 golden: {
+                    100: "#F9F1E7",
                     400: "#B88E2F",
                     500: "#9F7726",
                 },
