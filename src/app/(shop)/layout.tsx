@@ -1,14 +1,13 @@
 import { Header } from "@/widgets/Header";
-import { Container } from "@/shared/ui/Container";
 import { PropsWithChildren } from "react";
+import { Footer } from "@/widgets/Footer";
 
 export default function Layout({ children }: PropsWithChildren) {
     return (
         <div>
-            <Container>
-                <Header />
-            </Container>
+            <Header />
             {children}
+            <Footer />
         </div>
     );
 }

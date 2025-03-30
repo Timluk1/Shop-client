@@ -10,7 +10,7 @@ const getAllProducts = async (): Promise<IProduct[]> => {
 export const ShopCards = async () => {
     const products = await getAllProducts();
     return (
-        <ul className="grid grid-cols-4 gap-[50px]">
+        <ul className="grid grid-cols-4 gap-[50px] max-lg:grid-cols-3">
             {products.map((product: IProduct) => (
                 <li key={product.id}>
                     <ShopCardItem

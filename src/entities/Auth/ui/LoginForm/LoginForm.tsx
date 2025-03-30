@@ -87,11 +87,11 @@ export const LoginForm = () => {
                                     required: "Password is required",
                                     minLength: {
                                         value: 6,
-                                        message:
-                                            "Password must be at least 6 characters",
+                                        message: "Password must be at least 6 characters",
                                     },
                                 }}
                             />
+
                         </div>
                     </CardContent>
                     <CardFooter className="flex justify-center">

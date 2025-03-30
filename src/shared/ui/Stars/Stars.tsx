@@ -7,7 +7,7 @@ interface IStarsProps {
 
 export const Stars: React.FC<IStarsProps> = ({ count }) => {
     return (
-        <ul className="flex gap-5">
+        <ul className="flex gap-2">
             {Array.from({ length: count }).map((_, index) => (
               <li key={index}>
                 <Image src={StarIcon} alt="star" />
